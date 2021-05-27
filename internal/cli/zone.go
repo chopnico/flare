@@ -50,7 +50,7 @@ func NewZoneCommand(app *cli.App, config *config.App, logger *zerolog.Logger) {
 							list = append(list, zone)
 						}
 
-						fmt.Println(output.FormatList(list, []string{"ID", "Name"}))
+						fmt.Printf(output.FormatList(&list, []string{"ID", "Name"}))
 
 						return nil
 					},
@@ -108,10 +108,10 @@ func NewZoneCommand(app *cli.App, config *config.App, logger *zerolog.Logger) {
 						list = append(list, zone)
 
 						if c.String("properties") == "" {
-							fmt.Println(output.FormatList(list, nil))
+							fmt.Printf(output.FormatList(&list, nil))
 						} else {
 							properties := strings.Split(c.String("properties"), ",")
-							fmt.Println(output.FormatList(list, properties))
+							fmt.Printf(output.FormatList(&list, properties))
 						}
 
 						return nil
