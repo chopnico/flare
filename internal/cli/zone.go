@@ -3,12 +3,9 @@ package cli
 import (
 	"context"
 	"errors"
-	"fmt"
-	"strings"
 
 	"github.com/chopnico/flare/internal/config"
 
-	"github.com/chopnico/output"
 	"github.com/cloudflare/cloudflare-go"
 	"github.com/rs/zerolog"
 	"github.com/urfave/cli/v2"
@@ -50,7 +47,7 @@ func NewZoneCommand(app *cli.App, config *config.App, logger *zerolog.Logger) {
 							list = append(list, zone)
 						}
 
-						fmt.Printf(output.FormatList(&list, []string{"ID", "Name"}))
+						writeOutput(&list, "ID,Name", c.String("output-format"))
 
 						return nil
 					},
@@ -63,16 +60,19 @@ func NewZoneCommand(app *cli.App, config *config.App, logger *zerolog.Logger) {
 						&cli.StringFlag{
 							Name: "id",
 							Usage: "`ID` of zone",
+							Aliases: []string{"i"},
 							Required: false,
 						},
 						&cli.StringFlag{
 							Name: "properties",
+							Aliases: []string{"p"},
 							Usage: "Filter `PROPERTIES` of zone (comma separated)",
 							Required: false,
 						},
 						&cli.StringFlag{
 							Name: "name",
 							Usage: "`NAME` of zone",
+							Aliases: []string{"n"},
 							Required: false,
 						},
 					},
@@ -107,12 +107,7 @@ func NewZoneCommand(app *cli.App, config *config.App, logger *zerolog.Logger) {
 						var list []interface{}
 						list = append(list, zone)
 
-						if c.String("properties") == "" {
-							fmt.Printf(output.FormatList(&list, nil))
-						} else {
-							properties := strings.Split(c.String("properties"), ",")
-							fmt.Printf(output.FormatList(&list, properties))
-						}
+						writeOutput(&list, c.String("properties"), c.String("output-format"))
 
 						return nil
 					},

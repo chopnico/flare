@@ -18,6 +18,15 @@ func (a *App) Run(args []string) error {
 	app := &cli.App{
 		Name: a.Name,
 		Version: a.Version,
+		Flags: []cli.Flag{
+			&cli.StringFlag{
+				Name: "output-format",
+				Usage: "`OUTPUT-FORMAT`",
+				Value: "list",
+				Aliases: []string{"n"},
+				Required: false,
+			},
+		},
 	}
 
 	NewInitCommand(app, a.Config, a.Logger)
