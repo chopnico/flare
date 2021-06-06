@@ -1,7 +1,7 @@
 github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
-github.com/chopnico/output v0.0.24 h1:GWaspomwBk33IhOCAhwthSHifMgu5rlQrr0lnSMoNR8=
-github.com/chopnico/output v0.0.24/go.mod h1:bMtVrovBRq1WI7kBCiInc3Y3xeGxeQhGTVHGpnej0Kg=
+github.com/chopnico/output v0.0.25 h1:3ADvJAL06lhUmf9ETFyl/Hr+YLVRVHRP8hG8LWlWvuw=
+github.com/chopnico/output v0.0.25/go.mod h1:bMtVrovBRq1WI7kBCiInc3Y3xeGxeQhGTVHGpnej0Kg=
 github.com/chopnico/structs v1.1.0 h1:WizD00rf96OSZnHpQ2lGZliIfAo/6QLuZerhiohdaas=
 github.com/chopnico/structs v1.1.0/go.mod h1:qU5QBuTWldyWQ0tEzegUmmwx02izHNkTgO+mStYO1Jc=
 github.com/cloudflare/cloudflare-go v0.17.0 h1:lbNR+leC9ZHZteksrTwYVlxg+4eMx5f8wW4jnyMvicM=
