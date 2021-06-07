@@ -35,10 +35,10 @@ flare --help
 
 ``` sh
 NAME:
-   flare_linux_amd64 - A new cli application
+   flare - A Cloudflare CLI/CUI tool
 
 USAGE:
-   flare_linux_amd64 [global options] command [command options] [arguments...]
+   flare [global options] command [command options] [arguments...]
 
 COMMANDS:
    init, i  Initialize configuration
