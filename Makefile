@@ -1,6 +1,6 @@
 build:
 	go mod download
-	go build -o build/flare cmd/main.go
+	go build -o build/flare_linux_x64 cmd/main.go
 clean:
 	rm -rf build
 	go clean

@@ -18,6 +18,7 @@ func (a *App) Run(args []string) error {
 	app := &cli.App{
 		Name: a.Name,
 		Version: a.Version,
+		Usage: "A Cloudflare CLI/TUI tool",
 		Flags: []cli.Flag{
 			&cli.StringFlag{
 				Name: "output-format",
