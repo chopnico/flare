@@ -69,7 +69,7 @@ ID   : 00000000000000000000000000000000
 Name : gersh.win
 ```
 
-### Show some details about a zone
+#### Show some details about a zone
 
 ``` sh
 flare zone detail --id 00000000000000000000000000000000
