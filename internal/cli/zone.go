@@ -14,9 +14,9 @@ import (
 func NewZoneCommand(app *cli.App, config *config.App, logger *zerolog.Logger) {
 	app.Commands = append(app.Commands,
 		&cli.Command{
-			Name: "zone",
+			Name:    "zone",
 			Aliases: []string{"z"},
-			Usage: "Interact with zones",
+			Usage:   "Interact with zones",
 			Before: func(c *cli.Context) error {
 				if err := config.Read(); err != nil {
 					logger.Error().Err(err).Msg("")
@@ -26,8 +26,8 @@ func NewZoneCommand(app *cli.App, config *config.App, logger *zerolog.Logger) {
 			},
 			Subcommands: []*cli.Command{
 				{
-					Name: "list",
-					Usage: "List all zones",
+					Name:    "list",
+					Usage:   "List all zones",
 					Aliases: []string{"l"},
 					Action: func(c *cli.Context) error {
 						api, err := cloudflare.NewWithAPIToken(config.Token)
@@ -47,32 +47,32 @@ func NewZoneCommand(app *cli.App, config *config.App, logger *zerolog.Logger) {
 							list = append(list, zone)
 						}
 
-						writeOutput(&list, "ID,Name", c.String("output-format"))
+						writeOutput(&list, "ID,Name,Status", c.String("output-format"))
 
 						return nil
 					},
 				},
 				{
-					Name: "detail",
-					Usage: "Print zone details",
+					Name:    "detail",
+					Usage:   "Print zone details",
 					Aliases: []string{"d"},
 					Flags: []cli.Flag{
 						&cli.StringFlag{
-							Name: "id",
-							Usage: "`ID` of zone",
-							Aliases: []string{"i"},
+							Name:     "id",
+							Usage:    "`ID` of zone",
+							Aliases:  []string{"i"},
 							Required: false,
 						},
 						&cli.StringFlag{
-							Name: "properties",
-							Aliases: []string{"p"},
-							Usage: "Filter `PROPERTIES` of zone (comma separated)",
+							Name:     "properties",
+							Aliases:  []string{"p"},
+							Usage:    "Filter `PROPERTIES` of zone (comma separated)",
 							Required: false,
 						},
 						&cli.StringFlag{
-							Name: "name",
-							Usage: "`NAME` of zone",
-							Aliases: []string{"n"},
+							Name:     "name",
+							Usage:    "`NAME` of zone",
+							Aliases:  []string{"n"},
 							Required: false,
 						},
 					},

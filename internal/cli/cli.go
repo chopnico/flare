@@ -22,7 +22,7 @@ func (a *App) Run(args []string) error {
 		Flags: []cli.Flag{
 			&cli.StringFlag{
 				Name: "output-format",
-				Usage: "`OUTPUT-FORMAT`",
+				Usage: "`OUTPUT-FORMAT` (json, pretty-json, list)",
 				Value: "list",
 				Aliases: []string{"n"},
 				Required: false,
@@ -34,6 +34,7 @@ func (a *App) Run(args []string) error {
 	NewTuiCommand(app, a.Config, a.Logger)
 	NewZoneCommand(app, a.Config, a.Logger)
 	NewDnsCommand(app, a.Config, a.Logger)
+	NewAccountCommand(app, a.Config, a.Logger)
 
 	if err := app.Run(args); err != nil {
 		a.Logger.Error().Err(err)
