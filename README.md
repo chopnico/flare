@@ -23,21 +23,26 @@ flare --help
 
 ``` sh
 NAME:
-   flare - A Cloudflare CLI/CUI tool
+   flare - a cloudflare cli/tui tool
 
 USAGE:
    flare [global options] command [command options] [arguments...]
 
 COMMANDS:
-   init, i  Initialize configuration
-   tui, t   Run the terminal UI
-   zone, z  Interact with zones
-   dns, d   Interact with DNS records
+   zone, z  interact with zones
+   dns, d   interact with dns
    help, h  Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --output-format OUTPUT-FORMAT, -n OUTPUT-FORMAT  OUTPUT-FORMAT (default: "list")
-   --help, -h                                       show help (default: false)
+   --token TOKEN      api TOKEN (default: none) [$CLOUDFLARE_TOKEN]
+   --email EMAIL      api EMAIL (default: none) [$CLOUDFLARE_EMAIL]
+   --key KEY          api KEY (default: none) [$CLOUDFLARE_KEY]
+   --ignore-ssl       ignore ssl errors (default: false)
+   --timeout TIMEOUT  http TIMEOUT (default: 60)
+   --format FORMAT    printing FORMAT (json, list, table) (default: "table")
+   --logging LOGGING  set LOGGING level (default: "info")
+   --proxy PROXY      set http PROXY
+   --help, -h         show help (default: false)
 ```
 
 #### Show some zones
@@ -47,20 +52,16 @@ flare zone list
 ```
 
 ``` sh
-ID   : 00000000000000000000000000000000
-Name : audia.cloud
-
-ID   : 00000000000000000000000000000000
-Name : audiacloud.me
-
-ID   : 00000000000000000000000000000000
-Name : gersh.win
+ID                                      NAME            TYPE    STATUS 
+00000000000000000000000000000000        audia.cloud     full    active
+00000000000000000000000000000000        audiacloud.me   full    active
+00000000000000000000000000000000        gersh.win       full    active
 ```
 
-#### Show some details about a zone
+#### Show some details about a zone by name
 
 ``` sh
-flare zone detail --id 00000000000000000000000000000000
+flare zone get --name audiacloud.me
 ```
 
 ``` sh
@@ -91,7 +92,7 @@ VerificationKey   :
 #### Output details as JSON
 
 ``` sh
-flare --output-format json zone detail --id 00000000000000000000000000000000
+flare --format json zone get --name 00000000000000000000000000000000
 ```
 
 ``` sh
