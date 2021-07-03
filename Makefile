@@ -1,7 +1,9 @@
 build:
-	go mod download
-	go build -o build/flare_linux_x64 cmd/main.go
+	go mod vendor
+	go fmt ./...
+	go build -o build/flare/flare cmd/flare/flare.go
 clean:
 	rm -rf build
 	go clean
-	rm go.sum
+fmt:
+	go fmt ./...
