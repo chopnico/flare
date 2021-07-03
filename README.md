@@ -16,18 +16,6 @@ Support will expand. (I'm a Linux guy, so priorities....)
 
 ## How to Use
 
-### Initialize that configuration
-
-Flare can automatically create the configuration. All you'll need to do is supply an API token (global API key is not supported nor will ever be, unless some API endpoint requires it.) For information on how to create an API token, please consult Cloudflare's documentation. [](https://developers.cloudflare.com/api/tokens/create)
-
-``` sh
-flare init --token <your_api_token>
-```
-
-A directory named ".flare" will be created in your $HOME folder. This is where your logs and configuration files will be located.
-
-### Run some commands
-
 #### Show help
 ``` sh
 flare --help
